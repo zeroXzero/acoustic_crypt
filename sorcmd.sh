@@ -15,6 +15,12 @@ a="$a}"
 sed -i "1i $a" ./"${file}_sorted"
 echo "Created sorted file "${file}_sorted""
 
+if [ -d "wmat" ]; then
+echo "Removing wmat directory"
+rm -rf ./wmat
+fi
+mkdir wmat
+
 python2 ./createwmat.py "${file}_sorted"
 
 
